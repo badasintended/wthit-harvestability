@@ -1,4 +1,4 @@
-package squeek.wailaharvestability;
+package squeek.wthitharvestability;
 
 public final class ModInfo
 {

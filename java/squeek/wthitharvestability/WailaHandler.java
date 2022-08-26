@@ -1,4 +1,4 @@
-package squeek.wailaharvestability;
+package squeek.wthitharvestability;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +30,11 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.IForgeShearable;
 import net.minecraftforge.common.TierSortingRegistry;
 import org.jetbrains.annotations.Nullable;
-import squeek.wailaharvestability.helpers.BlockHelper;
-import squeek.wailaharvestability.helpers.ColorHelper;
-import squeek.wailaharvestability.helpers.OreHelper;
-import squeek.wailaharvestability.helpers.StringHelper;
-import squeek.wailaharvestability.helpers.ToolHelper;
+import squeek.wthitharvestability.helpers.BlockHelper;
+import squeek.wthitharvestability.helpers.ColorHelper;
+import squeek.wthitharvestability.helpers.OreHelper;
+import squeek.wthitharvestability.helpers.StringHelper;
+import squeek.wthitharvestability.helpers.ToolHelper;
 
 @WailaPlugin(id = ModInfo.MODID + ":plugin")
 public class WailaHandler implements IBlockComponentProvider, IEventListener, IWailaPlugin

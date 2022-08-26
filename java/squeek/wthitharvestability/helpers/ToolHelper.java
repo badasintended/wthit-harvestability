@@ -1,4 +1,4 @@
-package squeek.wailaharvestability.helpers;
+package squeek.wthitharvestability.helpers;
 
 import com.google.common.base.Suppliers;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;

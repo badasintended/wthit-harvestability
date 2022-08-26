@@ -1,4 +1,4 @@
-package squeek.wailaharvestability.helpers;
+package squeek.wthitharvestability.helpers;
 
 import net.minecraft.ChatFormatting;
 

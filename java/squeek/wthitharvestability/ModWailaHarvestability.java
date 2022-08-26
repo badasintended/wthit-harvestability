@@ -1,4 +1,4 @@
-package squeek.wailaharvestability;
+package squeek.wthitharvestability;
 
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.IExtensionPoint;
