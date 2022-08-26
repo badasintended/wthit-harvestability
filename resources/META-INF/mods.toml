@@ -3,32 +3,32 @@ loaderVersion="[33,)"
 license="The Unlicense"
 
 [[mods]]
-    modId="wailaharvestability"
+    modId="wthitharvestability"
     version="${file.jarVersion}"
-    displayName="Waila Harvestability"
-    displayURL="https://www.curseforge.com/minecraft/mc-mods/waila-harvestability"
-    issueTrackerURL="https://github.com/squeek502/WailaHarvestability/issues"
-    authors="squeek"
+    displayName="WTHIT Harvestability"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/wthit-harvestability"
+    issueTrackerURL="https://github.com/badasintended/wthit-harvestability/issues"
+    authors="squeek, deirn"
     credits=""
     description='''
-    An add-on for Waila that adds information about the harvestability of what you are looking at
+    An add-on for WTHIT Forge that adds information about the harvestability of what you are looking at
     '''
 
-[[dependencies.wailaharvestability]]
-    modId="waila"
+[[dependencies.wthitharvestability]]
+    modId="wthit"
     mandatory=true
-    versionRange="[1.10,)"
+    versionRange="[4.13,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.wailaharvestability]]
+[[dependencies.wthitharvestability]]
     modId="forge"
     mandatory=true
     versionRange="[33,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.wailaharvestability]]
+[[dependencies.wthitharvestability]]
     modId="tconstruct"
     mandatory=false
     versionRange="[3.0.2.73,)"

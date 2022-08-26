@@ -1,27 +1,27 @@
 package squeek.wailaharvestability;
 
-import net.minecraft.item.Item;
-import net.minecraft.item.ToolItem;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import squeek.wailaharvestability.helpers.StringHelper;
-import squeek.wailaharvestability.helpers.ToolHelper;
 
 @Mod.EventBusSubscriber(modid = ModInfo.MODID, value = Dist.CLIENT)
 public class TooltipHandler
 {
+    public static boolean enableHarvestTooltip;
+
     @SubscribeEvent
     public static void tooltipEvent(ItemTooltipEvent event)
     {
         Item item = event.getItemStack().getItem();
-        if (item instanceof ToolItem && Config.MAIN.harvestLevelTooltip.get())
+        if (item instanceof DiggerItem && enableHarvestTooltip)
         {
-            int harvestLevel = ToolHelper.getToolHarvestLevel(((ToolItem) item), event.getItemStack());
-            String harvestName = StringHelper.getHarvestLevelName(harvestLevel);
-            event.getToolTip().add(new TranslationTextComponent("wailaharvestability.harvestlevel").appendString(harvestName));
+            String harvestName = StringHelper.getHarvestLevelName(((DiggerItem) item).getTier());
+            event.getToolTip().add(new TranslatableComponent("wailaharvestability.harvestlevel").append(" " + harvestName));
         }
     }
 }

@@ -1,34 +1,34 @@
 package squeek.wailaharvestability.helpers;
 
-import net.minecraft.util.text.TextFormatting;
+import net.minecraft.ChatFormatting;
 
 public class ColorHelper
 {
-	private static final TextFormatting[] colorRange = {
-		TextFormatting.DARK_RED,
-		TextFormatting.RED,
-		TextFormatting.GOLD,
-		TextFormatting.YELLOW,
-		TextFormatting.DARK_GREEN,
-		TextFormatting.GREEN,
-		TextFormatting.AQUA
+	private static final ChatFormatting[] colorRange = {
+		ChatFormatting.DARK_RED,
+		ChatFormatting.RED,
+		ChatFormatting.GOLD,
+		ChatFormatting.YELLOW,
+		ChatFormatting.DARK_GREEN,
+		ChatFormatting.GREEN,
+		ChatFormatting.AQUA
 	};
 
-	private static final TextFormatting[] booleanColorRange = {
-		TextFormatting.DARK_RED,
-		TextFormatting.RED,
-		TextFormatting.DARK_GREEN,
-		TextFormatting.GREEN
+	private static final ChatFormatting[] booleanColorRange = {
+		ChatFormatting.DARK_RED,
+		ChatFormatting.RED,
+		ChatFormatting.DARK_GREEN,
+		ChatFormatting.GREEN
 	};
 
 	public static String getRelativeColor(double val, double min, double max)
 	{
 		if (min == max)
-			return TextFormatting.RESET.toString();
+			return ChatFormatting.RESET.toString();
 		else if ((max > min && val > max) || (min > max && val < max))
-			return TextFormatting.WHITE.toString() + TextFormatting.BOLD;
+			return ChatFormatting.WHITE.toString() + ChatFormatting.BOLD;
 		else if ((max > min && val < min) || (min > max && val > min))
-			return colorRange[0].toString() + TextFormatting.BOLD;
+			return colorRange[0].toString() + ChatFormatting.BOLD;
 
 		int index = (int) (((val - min) / (max - min)) * (colorRange.length - 1));
 		return colorRange[Math.max(0, Math.min(colorRange.length - 1, index))].toString();

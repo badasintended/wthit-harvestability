@@ -1,59 +1,73 @@
 package squeek.wailaharvestability.helpers;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ToolItem;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IWorldReader;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.ToolType;
-
+import com.google.common.base.Suppliers;
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
+import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
 import javax.annotation.Nonnull;
-import java.util.Set;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.TierSortingRegistry;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 
 public class ToolHelper
 {
-	public static Set<ToolType> getToolTypesOf(@Nonnull ItemStack tool)
+	private static final Map<TagKey<Block>, ToolAction> toolActions = new HashMap<>();
+	private static final Map<TagKey<Block>, String> toolClasses = new HashMap<>();
+	private static final Supplier<Object2IntMap<Tier>> tiers = Suppliers.memoize(() -> {
+		Object2IntMap<Tier> map = new Object2IntOpenHashMap<>();
+		int i = 0;
+		for (Tier tier : TierSortingRegistry.getSortedTiers()) {
+			map.put(tier, i);
+			i++;
+		}
+		return map;
+	});
+
+	static
 	{
-		return tool.getItem().getToolTypes(tool);
+		toolActions.put(BlockTags.MINEABLE_WITH_PICKAXE, ToolActions.PICKAXE_DIG);
+		toolActions.put(BlockTags.MINEABLE_WITH_SHOVEL, ToolActions.SHOVEL_DIG);
+		toolActions.put(BlockTags.MINEABLE_WITH_AXE, ToolActions.AXE_DIG);
+		toolActions.put(BlockTags.MINEABLE_WITH_HOE, ToolActions.HOE_DIG);
+		toolActions.put(BlockHelper.SWORD, ToolActions.SWORD_DIG);
+
+		for (TagKey<Block> tag : toolActions.keySet())
+		{
+			String[] split = tag.location().getPath().split("/");
+			toolClasses.put(tag, split[split.length - 1]);
+		}
 	}
 
-	public static boolean isToolOfClass(@Nonnull ItemStack tool, ToolType toolType)
+	public static boolean isToolEffectiveAgainst(@Nonnull ItemStack tool, BlockState state, TagKey<Block> effectiveToolType)
 	{
-		return getToolTypesOf(tool).contains(toolType);
+		return tool.isCorrectToolForDrops(state) || tool.canPerformAction(toolActions.get(effectiveToolType));
 	}
 
-	public static boolean toolHasAnyToolClass(@Nonnull ItemStack tool)
+	public static boolean canToolHarvestLevel(@Nonnull ItemStack tool, Tier harvestTier)
 	{
-		return !getToolTypesOf(tool).isEmpty();
-	}
-
-	public static boolean isToolEffectiveAgainst(@Nonnull ItemStack tool, IWorldReader worldReader, BlockPos blockPos, ToolType effectiveToolType)
-	{
-		return ForgeHooks.isToolEffective(worldReader, blockPos, tool) || (toolHasAnyToolClass(tool) ? isToolOfClass(tool, effectiveToolType) : tool.getItem().getDestroySpeed(tool, worldReader.getBlockState(blockPos)) > 1.5f);
-	}
-
-	public static boolean canToolHarvestLevel(@Nonnull ItemStack tool, IWorldReader worldReader, BlockPos blockPos, PlayerEntity player, int harvestLevel)
-	{
-		BlockState state = worldReader.getBlockState(blockPos);
-		ToolType harvestTool = state.getBlock().getHarvestTool(state);
-
-		return !tool.isEmpty() && harvestTool != null && tool.getItem().getHarvestLevel(tool, harvestTool, player, state) >= harvestLevel;
+		if (tool.isEmpty())
+			return false;
+		if (tool.getItem() instanceof TieredItem tiered)
+			return tiers.get().getInt(tiered.getTier()) >= tiers.get().getInt(harvestTier);
+		return false;
 	}
 
 	public static boolean canToolHarvestBlock(@Nonnull ItemStack tool, BlockState blockState)
 	{
-		return !blockState.getRequiresTool() || tool.canHarvestBlock(blockState);
+		return !blockState.requiresCorrectToolForDrops() || tool.isCorrectToolForDrops(blockState);
 	}
 
-	public static int getToolHarvestLevel(ToolItem tool, @Nonnull ItemStack toolStack)
+	public static String getToolClass(TagKey<Block> tag)
 	{
-		Set<ToolType> toolClasses = ToolHelper.getToolTypesOf(toolStack);
-		if (toolClasses.isEmpty())
-			return 0;
-
-		ToolType toolClass = toolClasses.iterator().next();
-		return tool.getHarvestLevel(toolStack, toolClass, null, null);
+		return toolClasses.get(tag);
 	}
 }

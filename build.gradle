@@ -1,33 +1,35 @@
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7.+'
     }
 }
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'eclipse'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+version = mod_version
+group = "wthitharvestability"
+archivesBaseName = "wthitharvestability-mc" + "${minecraft_version}"
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 repositories {
-  maven {
-    name = "Hwyla"
-    url = "https://maven.tehnut.info"
-  }
+    maven { url "https://maven.bai.lol" }
 }
 
 minecraft {
-    mappings channel: mappings_channel, version: mappings_version
+    mappings channel: "official", version: minecraft_version
 
     runs {
         client {
             workingDirectory project.file('run')
             mods {
-                wailaharvestability {
+                wthitharvestability {
                     source sourceSets.main
                 }
             }
@@ -35,26 +37,22 @@ minecraft {
         server {
             workingDirectory project.file('run')
             mods {
-                wailaharvestability {
+                wthitharvestability {
                     source sourceSets.main
                 }
             }
         }
         data {
             workingDirectory project.file('run')
-            args '--mod', 'wailaharvestability', '--all', '--output', file("src/generated/resources/"), '--existing', file("src/main/resources/")
+            args '--mod', 'wthitharvestability', '--all', '--output', file("src/generated/resources/"), '--existing', file("src/main/resources/")
             mods {
-                wailaharvestability {
+                wthitharvestability {
                     source sourceSets.main
                 }
             }
         }
     }
 }
-
-group = project.projectDir.name.toLowerCase()
-def modId = project.projectDir.name
-archivesBaseName = modId + "-mc" + "${minecraft_version}"
 
 sourceSets.main.java.srcDirs += 'java'
 sourceSets.main.java.srcDirs += 'apis'
@@ -62,13 +60,20 @@ sourceSets.main.resources.srcDirs += 'resources'
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    compile fg.deobf("mcp.mobius.waila:Hwyla:${hwyla_version}_1.16.1")
+    compileOnly fg.deobf("mcp.mobius.waila:wthit-api:forge-${wthit_version}")
+    runtimeOnly fg.deobf("mcp.mobius.waila:wthit:forge-${wthit_version}")
+    runtimeOnly fg.deobf("lol.bai:badpackets:forge-${badpackets_version}")
 }
 
 jar {
+    finalizedBy('reobfJar')
     manifest {
         attributes([
-            "Implementation-Version": "${version}"
+            "Implementation-Version": "${project.version}"
         ])
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }

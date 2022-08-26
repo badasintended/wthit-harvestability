@@ -1,12 +1,12 @@
 package squeek.wailaharvestability.helpers;
 
-import net.minecraft.client.resources.I18n;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-
 import java.lang.reflect.Method;
 import java.util.List;
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.resources.language.I18n;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.world.item.Tier;
 
 public class StringHelper
 {
@@ -17,49 +17,50 @@ public class StringHelper
 	{
 		try
 		{
-			harvestLevels = Class.forName("slimeknights.tconstruct.library.utils.HarvestLevels");
-			getHarvestLevelName = harvestLevels.getDeclaredMethod("getHarvestLevelName", int.class);
+			harvestLevels = Class.forName("slimeknights.tconstruct.library.utils.HarvestTiers");
+			getHarvestLevelName = harvestLevels.getDeclaredMethod("getName", Tier.class);
 		}
 		catch (Exception e)
 		{
 		}
 	}
 
-	public static String getHarvestLevelName(int num)
+	public static String getHarvestLevelName(Tier tier)
 	{
 		if (getHarvestLevelName != null)
 		{
 			try
 			{
-				return (String) getHarvestLevelName.invoke(null, num);
+				return ((Component) getHarvestLevelName.invoke(null, tier)).getString();
 			}
 			catch (Exception e)
 			{
 			}
 		}
 
-		String unlocalized = "wailaharvestability.harvestlevel" + (num + 1);
+		String unlocalized = "wailaharvestability.harvestlevel." + (tier.getLevel() + 1);
 
-		if (I18n.hasKey(unlocalized))
-			return I18n.format(unlocalized);
+		if (I18n.exists(unlocalized))
+			return I18n.get(unlocalized);
 
-		return String.valueOf(num);
+		return String.valueOf(tier.getLevel());
 	}
 
-	public static ITextComponent concatenateStringList(List<ITextComponent> textComponents, String separator)
+	public static Component concatenateStringList(List<Component> textComponents, String separator)
 	{
 		StringBuilder sb = new StringBuilder();
 		String sep = "";
-		for (ITextComponent s : textComponents)
+		for (Component s : textComponents)
 		{
 			sb.append(sep).append(s.getString());
 			sep = separator;
 		}
-		return new StringTextComponent(sb.toString());
+		return new TextComponent(sb.toString());
 	}
 
 	public static String stripFormatting(String str)
 	{
-		return TextFormatting.getTextWithoutFormattingCodes(str);
+		return ChatFormatting.stripFormatting(str);
 	}
+
 }
