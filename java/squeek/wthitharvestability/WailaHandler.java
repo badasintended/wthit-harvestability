@@ -15,8 +15,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -92,7 +90,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
             }
 
             if (BlockHelper.isAdventureModeAndBlockIsUnbreakable(player, pos) || BlockHelper.isBlockUnbreakable(player.level, pos, state)) {
-                Component unbreakableString = new TextComponent(ColorHelper.getBooleanColor(false)).append(config.getString(HARVESTABLE_FALSE_STRING)).append(" ").append(!minimalLayout ? new TranslatableComponent("waila.h12y.harvestable").withStyle(ChatFormatting.RESET) : new TextComponent(""));
+                Component unbreakableString = Component.literal(ColorHelper.getBooleanColor(false)).append(config.getString(HARVESTABLE_FALSE_STRING)).append(" ").append(!minimalLayout ? Component.translatable("waila.h12y.harvestable").withStyle(ChatFormatting.RESET) : Component.literal(""));
                 stringList.add(unbreakableString);
                 return;
             }
@@ -136,7 +134,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
 
             if (!currentlyHarvestable.isEmpty() || !shearability.isEmpty()) {
                 String separator = (!shearability.isEmpty() ? " " : "");
-                stringList.add(new TextComponent(currentlyHarvestable + separator + shearability));
+                stringList.add(Component.literal(currentlyHarvestable + separator + shearability));
             }
             if (harvestTier != null && showEffectiveTool) {
                 String effectiveToolClass = effectiveTool.toolClass();
@@ -146,7 +144,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
                 } else {
                     effectiveToolString = effectiveToolClass.substring(0, 1).toUpperCase() + effectiveToolClass.substring(1);
                 }
-                stringList.add(new TranslatableComponent(!minimalLayout ? "waila.h12y.effectivetool" : "").append(" ").append(ColorHelper.getBooleanColor(isEffective && (!isHoldingTinkersTool || canHarvest), isHoldingTinkersTool && isEffective && !canHarvest) + effectiveToolString));
+                stringList.add(Component.translatable(!minimalLayout ? "waila.h12y.effectivetool" : "").append(" ").append(ColorHelper.getBooleanColor(isEffective && (!isHoldingTinkersTool || canHarvest), isHoldingTinkersTool && isEffective && !canHarvest) + effectiveToolString));
             }
             if (harvestTier != null && (showHarvestLevel || showHarvestLevelNum)) {
                 String harvestLevelString = "";
@@ -161,7 +159,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
                 else if (showHarvestLevelNum)
                     harvestLevelString = harvestLevelNum;
 
-                stringList.add(new TranslatableComponent(!minimalLayout ? "waila.h12y.harvestlevel" : "").append(" ").append(ColorHelper.getBooleanColor(isAboveMinHarvestLevel && canHarvest) + harvestLevelString));
+                stringList.add(Component.translatable(!minimalLayout ? "waila.h12y.harvestlevel" : "").append(" ").append(ColorHelper.getBooleanColor(isAboveMinHarvestLevel && canHarvest) + harvestLevelString));
             }
         }
     }

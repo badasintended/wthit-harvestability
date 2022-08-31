@@ -7,7 +7,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.Tier;
 import net.minecraftforge.common.TierSortingRegistry;
 
@@ -36,7 +35,7 @@ public class StringHelper {
             sb.append(sep).append(s.getString());
             sep = separator;
         }
-        return new TextComponent(sb.toString());
+        return Component.literal(sb.toString());
     }
 
     public static String stripFormatting(String str) {

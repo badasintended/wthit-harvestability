@@ -1,6 +1,6 @@
 package squeek.wthitharvestability;
 
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
@@ -19,7 +19,7 @@ public class TooltipHandler {
         Item item = event.getItemStack().getItem();
         if (item instanceof DiggerItem && enableHarvestTooltip) {
             String harvestName = StringHelper.getHarvestLevelName(((DiggerItem) item).getTier());
-            event.getToolTip().add(new TranslatableComponent("waila.h12y.harvestlevel").append(" " + harvestName));
+            event.getToolTip().add(Component.translatable("waila.h12y.harvestlevel").append(" " + harvestName));
         }
     }
 

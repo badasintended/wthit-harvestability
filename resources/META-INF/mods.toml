@@ -17,7 +17,7 @@ license="The Unlicense"
 [[dependencies.wthitharvestability]]
     modId="wthit"
     mandatory=true
-    versionRange="[4.13,)"
+    versionRange="[5.11,)"
     ordering="AFTER"
     side="BOTH"
 
