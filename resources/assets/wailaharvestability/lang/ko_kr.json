@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "곡괭이",
-  "wailaharvestability.toolclass.shovel": "삽",
-  "wailaharvestability.toolclass.axe": "도끼",
-  "wailaharvestability.toolclass.chisel": "정",
-  "wailaharvestability.toolclass.scoop": "뜰채",
-  "wailaharvestability.toolclass.crowbar": "크로우 바",
-  "wailaharvestability.toolclass.sword": "검",
+  "waila.h12y.toolclass.pickaxe": "곡괭이",
+  "waila.h12y.toolclass.shovel": "삽",
+  "waila.h12y.toolclass.axe": "도끼",
+  "waila.h12y.toolclass.chisel": "정",
+  "waila.h12y.toolclass.scoop": "뜰채",
+  "waila.h12y.toolclass.crowbar": "크로우 바",
+  "waila.h12y.toolclass.sword": "검",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "사용가능 도구 :",
-  "wailaharvestability.harvestlevel": "회수 레벨 :",
-  "wailaharvestability.currentlyharvestable": "회수가능한 아이템",
-  "wailaharvestability.harvestable": "회수가능"
+  "waila.h12y.effectivetool": "사용가능 도구 :",
+  "waila.h12y.harvestlevel": "회수 레벨 :",
+  "waila.h12y.currentlyharvestable": "회수가능한 아이템",
+  "waila.h12y.harvestable": "회수가능"
 }

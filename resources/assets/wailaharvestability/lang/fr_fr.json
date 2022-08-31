@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "Pioche",
-  "wailaharvestability.toolclass.shovel": "Pelle",
-  "wailaharvestability.toolclass.axe": "Hache",
-  "wailaharvestability.toolclass.chisel": "Burin",
-  "wailaharvestability.toolclass.scoop": "Epuisette",
-  "wailaharvestability.toolclass.crowbar": "Pied-de-biche",
-  "wailaharvestability.toolclass.sword": "Épée",
+  "waila.h12y.toolclass.pickaxe": "Pioche",
+  "waila.h12y.toolclass.shovel": "Pelle",
+  "waila.h12y.toolclass.axe": "Hache",
+  "waila.h12y.toolclass.chisel": "Burin",
+  "waila.h12y.toolclass.scoop": "Epuisette",
+  "waila.h12y.toolclass.crowbar": "Pied-de-biche",
+  "waila.h12y.toolclass.sword": "Épée",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "Outil efficace :",
-  "wailaharvestability.harvestlevel": "Niveau de récolte :",
-  "wailaharvestability.currentlyharvestable": "actuellement récoltable",
-  "wailaharvestability.harvestable": "récoltable"
+  "waila.h12y.effectivetool": "Outil efficace :",
+  "waila.h12y.harvestlevel": "Niveau de récolte :",
+  "waila.h12y.currentlyharvestable": "actuellement récoltable",
+  "waila.h12y.harvestable": "récoltable"
 }

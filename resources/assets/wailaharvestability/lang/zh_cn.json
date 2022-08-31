@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "镐",
-  "wailaharvestability.toolclass.shovel": "铲",
-  "wailaharvestability.toolclass.axe": "斧",
-  "wailaharvestability.toolclass.chisel": "凿",
-  "wailaharvestability.toolclass.scoop": "捕蜂网",
-  "wailaharvestability.toolclass.crowbar": "撬棍",
-  "wailaharvestability.toolclass.sword": "剑",
+  "waila.h12y.toolclass.pickaxe": "镐",
+  "waila.h12y.toolclass.shovel": "铲",
+  "waila.h12y.toolclass.axe": "斧",
+  "waila.h12y.toolclass.chisel": "凿",
+  "waila.h12y.toolclass.scoop": "捕蜂网",
+  "waila.h12y.toolclass.crowbar": "撬棍",
+  "waila.h12y.toolclass.sword": "剑",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "所需工具 :",
-  "wailaharvestability.harvestlevel": "挖掘等级 :",
-  "wailaharvestability.currentlyharvestable": "目前能否挖掘",
-  "wailaharvestability.harvestable": "能否挖掘"
+  "waila.h12y.effectivetool": "所需工具 :",
+  "waila.h12y.harvestlevel": "挖掘等级 :",
+  "waila.h12y.currentlyharvestable": "目前能否挖掘",
+  "waila.h12y.harvestable": "能否挖掘"
 }

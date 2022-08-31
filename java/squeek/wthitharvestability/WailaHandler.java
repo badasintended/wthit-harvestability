@@ -92,7 +92,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
             }
 
             if (BlockHelper.isAdventureModeAndBlockIsUnbreakable(player, pos) || BlockHelper.isBlockUnbreakable(player.level, pos, state)) {
-                Component unbreakableString = new TextComponent(ColorHelper.getBooleanColor(false)).append(config.getString(HARVESTABLE_FALSE_STRING)).append(" ").append(!minimalLayout ? new TranslatableComponent("wailaharvestability.harvestable").withStyle(ChatFormatting.RESET) : new TextComponent(""));
+                Component unbreakableString = new TextComponent(ColorHelper.getBooleanColor(false)).append(config.getString(HARVESTABLE_FALSE_STRING)).append(" ").append(!minimalLayout ? new TranslatableComponent("waila.h12y.harvestable").withStyle(ChatFormatting.RESET) : new TextComponent(""));
                 stringList.add(unbreakableString);
                 return;
             }
@@ -132,7 +132,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
             if (hideWhileHarvestable && isCurrentlyHarvestable)
                 return;
 
-            String currentlyHarvestable = showCurrentlyHarvestable ? ColorHelper.getBooleanColor(isCurrentlyHarvestable) + config.getString(isCurrentlyHarvestable ? HARVESTABLE_TRUE_STRING : HARVESTABLE_FALSE_STRING) + " " + (!minimalLayout ? ChatFormatting.RESET + I18n.get("wailaharvestability.currentlyharvestable") : "") : "";
+            String currentlyHarvestable = showCurrentlyHarvestable ? ColorHelper.getBooleanColor(isCurrentlyHarvestable) + config.getString(isCurrentlyHarvestable ? HARVESTABLE_TRUE_STRING : HARVESTABLE_FALSE_STRING) + " " + (!minimalLayout ? ChatFormatting.RESET + I18n.get("waila.h12y.currentlyharvestable") : "") : "";
 
             if (!currentlyHarvestable.isEmpty() || !shearability.isEmpty()) {
                 String separator = (!shearability.isEmpty() ? " " : "");
@@ -141,12 +141,12 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
             if (harvestTier != null && showEffectiveTool) {
                 String effectiveToolClass = effectiveTool.toolClass();
                 String effectiveToolString;
-                if (I18n.exists("wailaharvestability.toolclass." + effectiveToolClass)) {
-                    effectiveToolString = I18n.get("wailaharvestability.toolclass." + effectiveToolClass);
+                if (I18n.exists("waila.h12y.toolclass." + effectiveToolClass)) {
+                    effectiveToolString = I18n.get("waila.h12y.toolclass." + effectiveToolClass);
                 } else {
                     effectiveToolString = effectiveToolClass.substring(0, 1).toUpperCase() + effectiveToolClass.substring(1);
                 }
-                stringList.add(new TranslatableComponent(!minimalLayout ? "wailaharvestability.effectivetool" : "").append(" ").append(ColorHelper.getBooleanColor(isEffective && (!isHoldingTinkersTool || canHarvest), isHoldingTinkersTool && isEffective && !canHarvest) + effectiveToolString));
+                stringList.add(new TranslatableComponent(!minimalLayout ? "waila.h12y.effectivetool" : "").append(" ").append(ColorHelper.getBooleanColor(isEffective && (!isHoldingTinkersTool || canHarvest), isHoldingTinkersTool && isEffective && !canHarvest) + effectiveToolString));
             }
             if (harvestTier != null && (showHarvestLevel || showHarvestLevelNum)) {
                 String harvestLevelString = "";
@@ -157,11 +157,11 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
                 showHarvestLevelNum = showHarvestLevelNum && (!showHarvestLevel || !harvestLevelName.equals(harvestLevelNum));
 
                 if (showHarvestLevel)
-                    harvestLevelString = harvestLevelName + (showHarvestLevelNum ? "(" + harvestLevelNum + ")" : "");
+                    harvestLevelString = harvestLevelName + (showHarvestLevelNum ? " (" + harvestLevelNum + ")" : "");
                 else if (showHarvestLevelNum)
                     harvestLevelString = harvestLevelNum;
 
-                stringList.add(new TranslatableComponent(!minimalLayout ? "wailaharvestability.harvestlevel" : "").append(" ").append(ColorHelper.getBooleanColor(isAboveMinHarvestLevel && canHarvest) + harvestLevelString));
+                stringList.add(new TranslatableComponent(!minimalLayout ? "waila.h12y.harvestlevel" : "").append(" ").append(ColorHelper.getBooleanColor(isAboveMinHarvestLevel && canHarvest) + harvestLevelString));
             }
         }
     }

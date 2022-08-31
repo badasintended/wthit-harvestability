@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "Spitzhacke",
-  "wailaharvestability.toolclass.shovel": "Schaufel",
-  "wailaharvestability.toolclass.axe": "Axt",
-  "wailaharvestability.toolclass.chisel": "Meißel",
-  "wailaharvestability.toolclass.scoop": "Kescher",
-  "wailaharvestability.toolclass.crowbar": "Brecheisen",
-  "wailaharvestability.toolclass.sword": "Schwert",
+  "waila.h12y.toolclass.pickaxe": "Spitzhacke",
+  "waila.h12y.toolclass.shovel": "Schaufel",
+  "waila.h12y.toolclass.axe": "Axt",
+  "waila.h12y.toolclass.chisel": "Meißel",
+  "waila.h12y.toolclass.scoop": "Kescher",
+  "waila.h12y.toolclass.crowbar": "Brecheisen",
+  "waila.h12y.toolclass.sword": "Schwert",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "Effektives Werkzeug :",
-  "wailaharvestability.harvestlevel": "Abbau-Level :",
-  "wailaharvestability.currentlyharvestable": "Aktuell abbaubar",
-  "wailaharvestability.harvestable": "Abbaubar"
+  "waila.h12y.effectivetool": "Effektives Werkzeug :",
+  "waila.h12y.harvestlevel": "Abbau-Level :",
+  "waila.h12y.currentlyharvestable": "Aktuell abbaubar",
+  "waila.h12y.harvestable": "Abbaubar"
 }

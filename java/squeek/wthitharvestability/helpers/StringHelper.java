@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import net.minecraft.ChatFormatting;
+import net.minecraft.Util;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.item.Tier;
+import net.minecraftforge.common.TierSortingRegistry;
 
 public class StringHelper {
 
@@ -19,7 +21,7 @@ public class StringHelper {
             if (name != null) return name;
         }
 
-        String unlocalized = "wailaharvestability.harvestlevel." + (tier.getLevel() + 1);
+        String unlocalized = Util.makeDescriptionId("waila.h12y.tier", TierSortingRegistry.getName(tier));
 
         if (I18n.exists(unlocalized))
             return I18n.get(unlocalized);

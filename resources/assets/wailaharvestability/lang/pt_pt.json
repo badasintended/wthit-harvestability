@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "Picareta",
-  "wailaharvestability.toolclass.shovel": "Pá",
-  "wailaharvestability.toolclass.axe": "Machado",
-  "wailaharvestability.toolclass.chisel": "Cinzel",
-  "wailaharvestability.toolclass.scoop": "Rede de Insetos",
-  "wailaharvestability.toolclass.crowbar": "Pé-de-Cabra",
-  "wailaharvestability.toolclass.sword": "Espada",
+  "waila.h12y.toolclass.pickaxe": "Picareta",
+  "waila.h12y.toolclass.shovel": "Pá",
+  "waila.h12y.toolclass.axe": "Machado",
+  "waila.h12y.toolclass.chisel": "Cinzel",
+  "waila.h12y.toolclass.scoop": "Rede de Insetos",
+  "waila.h12y.toolclass.crowbar": "Pé-de-Cabra",
+  "waila.h12y.toolclass.sword": "Espada",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "Ferramenta Efetiva :",
-  "wailaharvestability.harvestlevel": "Nível de Mineração :",
-  "wailaharvestability.currentlyharvestable": "Atualmente Minerável",
-  "wailaharvestability.harvestable": "Minerável"
+  "waila.h12y.effectivetool": "Ferramenta Efetiva :",
+  "waila.h12y.harvestlevel": "Nível de Mineração :",
+  "waila.h12y.currentlyharvestable": "Atualmente Minerável",
+  "waila.h12y.harvestable": "Minerável"
 }

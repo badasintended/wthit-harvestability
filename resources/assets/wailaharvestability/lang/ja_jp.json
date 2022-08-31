@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "つるはし",
-  "wailaharvestability.toolclass.shovel": "シャベル",
-  "wailaharvestability.toolclass.axe": "斧",
-  "wailaharvestability.toolclass.chisel": "Chisel",
-  "wailaharvestability.toolclass.scoop": "虫取り網",
-  "wailaharvestability.toolclass.crowbar": "バール",
-  "wailaharvestability.toolclass.sword": "剣",
+  "waila.h12y.toolclass.pickaxe": "つるはし",
+  "waila.h12y.toolclass.shovel": "シャベル",
+  "waila.h12y.toolclass.axe": "斧",
+  "waila.h12y.toolclass.chisel": "Chisel",
+  "waila.h12y.toolclass.scoop": "虫取り網",
+  "waila.h12y.toolclass.crowbar": "バール",
+  "waila.h12y.toolclass.sword": "剣",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "効率的な道具 :",
-  "wailaharvestability.harvestlevel": "採掘レベル :",
-  "wailaharvestability.currentlyharvestable": "現在採掘可能",
-  "wailaharvestability.harvestable": "採掘可能"
+  "waila.h12y.effectivetool": "効率的な道具 :",
+  "waila.h12y.harvestlevel": "採掘レベル :",
+  "waila.h12y.currentlyharvestable": "現在採掘可能",
+  "waila.h12y.harvestable": "採掘可能"
 }

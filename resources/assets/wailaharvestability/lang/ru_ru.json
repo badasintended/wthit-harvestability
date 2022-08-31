@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "Кирка",
-  "wailaharvestability.toolclass.shovel": "Лопата",
-  "wailaharvestability.toolclass.axe": "Топор",
-  "wailaharvestability.toolclass.chisel": "Стамеска",
-  "wailaharvestability.toolclass.scoop": "Сачок",
-  "wailaharvestability.toolclass.crowbar": "Монтировка",
-  "wailaharvestability.toolclass.sword": "Меч",
+  "waila.h12y.toolclass.pickaxe": "Кирка",
+  "waila.h12y.toolclass.shovel": "Лопата",
+  "waila.h12y.toolclass.axe": "Топор",
+  "waila.h12y.toolclass.chisel": "Стамеска",
+  "waila.h12y.toolclass.scoop": "Сачок",
+  "waila.h12y.toolclass.crowbar": "Монтировка",
+  "waila.h12y.toolclass.sword": "Меч",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "Эффективный инструмент :",
-  "wailaharvestability.harvestlevel": "Уровень добычи :",
-  "wailaharvestability.currentlyharvestable": "Можно добыть",
-  "wailaharvestability.harvestable": "Можно добыть"
+  "waila.h12y.effectivetool": "Эффективный инструмент :",
+  "waila.h12y.harvestlevel": "Уровень добычи :",
+  "waila.h12y.currentlyharvestable": "Можно добыть",
+  "waila.h12y.harvestable": "Можно добыть"
 }

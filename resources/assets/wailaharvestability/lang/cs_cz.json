@@ -1,16 +1,16 @@
 {
   "_comment": "tools",
-  "wailaharvestability.toolclass.pickaxe": "Krumpáč",
-  "wailaharvestability.toolclass.shovel": "Lopata",
-  "wailaharvestability.toolclass.axe": "Sekera",
-  "wailaharvestability.toolclass.chisel": "Dláto",
-  "wailaharvestability.toolclass.scoop": "Síťka",
-  "wailaharvestability.toolclass.crowbar": "Páčidlo",
-  "wailaharvestability.toolclass.sword": "Meč",
+  "waila.h12y.toolclass.pickaxe": "Krumpáč",
+  "waila.h12y.toolclass.shovel": "Lopata",
+  "waila.h12y.toolclass.axe": "Sekera",
+  "waila.h12y.toolclass.chisel": "Dláto",
+  "waila.h12y.toolclass.scoop": "Síťka",
+  "waila.h12y.toolclass.crowbar": "Páčidlo",
+  "waila.h12y.toolclass.sword": "Meč",
 
   "_comment": "tooltips",
-  "wailaharvestability.effectivetool": "Efektivní nástroj :",
-  "wailaharvestability.harvestlevel": "Úroveň získatelnosti :",
-  "wailaharvestability.currentlyharvestable": "Momentálně získatelné",
-  "wailaharvestability.harvestable": "Získatelné"
+  "waila.h12y.effectivetool": "Efektivní nástroj :",
+  "waila.h12y.harvestlevel": "Úroveň získatelnosti :",
+  "waila.h12y.currentlyharvestable": "Momentálně získatelné",
+  "waila.h12y.harvestable": "Získatelné"
 }

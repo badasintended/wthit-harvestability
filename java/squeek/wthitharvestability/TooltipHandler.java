@@ -19,7 +19,7 @@ public class TooltipHandler {
         Item item = event.getItemStack().getItem();
         if (item instanceof DiggerItem && enableHarvestTooltip) {
             String harvestName = StringHelper.getHarvestLevelName(((DiggerItem) item).getTier());
-            event.getToolTip().add(new TranslatableComponent("wailaharvestability.harvestlevel").append(" " + harvestName));
+            event.getToolTip().add(new TranslatableComponent("waila.h12y.harvestlevel").append(" " + harvestName));
         }
     }
 
