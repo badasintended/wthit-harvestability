@@ -1,11 +1,12 @@
 package squeek.wthitharvestability.helpers;
 
 import java.util.Map;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.multiplayer.PlayerInfo;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -53,9 +54,9 @@ public class BlockHelper {
             return false;
 
         ItemStack heldItem = player.getMainHandItem();
-        Level world = player.level;
+        Level world = player.level();
 
-        return gameType == GameType.SPECTATOR || heldItem.isEmpty() || !heldItem.hasAdventureModeBreakTagForBlock(world.registryAccess().registryOrThrow(Registry.BLOCK_REGISTRY), new BlockInWorld(world, pos, false));
+        return gameType == GameType.SPECTATOR || heldItem.isEmpty() || !heldItem.hasAdventureModeBreakTagForBlock(world.registryAccess().registryOrThrow(Registries.BLOCK), new BlockInWorld(world, pos, false));
     }
 
     /**

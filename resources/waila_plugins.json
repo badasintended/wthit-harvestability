@@ -1,0 +1,5 @@
+{
+  "wthitharvestability:plugin": {
+    "initializer": "squeek.wthitharvestability.WailaHandler"
+  }
+}

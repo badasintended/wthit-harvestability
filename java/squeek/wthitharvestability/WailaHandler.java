@@ -2,6 +2,7 @@ package squeek.wthitharvestability;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import mcp.mobius.waila.api.IBlockAccessor;
 import mcp.mobius.waila.api.IBlockComponentProvider;
 import mcp.mobius.waila.api.IEventListener;
@@ -10,7 +11,6 @@ import mcp.mobius.waila.api.IRegistrar;
 import mcp.mobius.waila.api.ITooltip;
 import mcp.mobius.waila.api.IWailaPlugin;
 import mcp.mobius.waila.api.TooltipPosition;
-import mcp.mobius.waila.api.WailaPlugin;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
@@ -34,7 +34,6 @@ import squeek.wthitharvestability.helpers.StringHelper;
 import squeek.wthitharvestability.helpers.ToolHelper;
 import squeek.wthitharvestability.helpers.ToolType;
 
-@WailaPlugin(id = WailaHarvestability.MOD_ID + ":plugin")
 public class WailaHandler implements IBlockComponentProvider, IEventListener, IWailaPlugin {
 
     @Override
@@ -89,7 +88,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
                 return;
             }
 
-            if (BlockHelper.isAdventureModeAndBlockIsUnbreakable(player, pos) || BlockHelper.isBlockUnbreakable(player.level, pos, state)) {
+            if (BlockHelper.isAdventureModeAndBlockIsUnbreakable(player, pos) || BlockHelper.isBlockUnbreakable(player.level(), pos, state)) {
                 Component unbreakableString = Component.literal(ColorHelper.getBooleanColor(false)).append(config.getString(HARVESTABLE_FALSE_STRING)).append(" ").append(!minimalLayout ? Component.translatable("waila.h12y.harvestable").withStyle(ChatFormatting.RESET) : Component.literal(""));
                 stringList.add(unbreakableString);
                 return;
@@ -102,7 +101,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
                     break;
                 }
             }
-            ToolType effectiveTool = BlockHelper.getEffectiveToolOf(player.level, pos, state);
+            ToolType effectiveTool = BlockHelper.getEffectiveToolOf(player.level(), pos, state);
             if (effectiveTool == null)
                 harvestTier = null;
 
@@ -173,7 +172,7 @@ public class WailaHandler implements IBlockComponentProvider, IEventListener, IW
         if (showShearability && canBeSheared) {
             ItemStack heldStack = player.getMainHandItem();
             boolean isHoldingShears = !heldStack.isEmpty() && heldStack.getItem() instanceof ShearsItem;
-            boolean isShearable = isHoldingShears && (isDoublePlant || ((IForgeShearable) state.getBlock()).isShearable(heldStack, player.level, pos));
+            boolean isShearable = isHoldingShears && (isDoublePlant || ((IForgeShearable) state.getBlock()).isShearable(heldStack, player.level(), pos));
             return ColorHelper.getBooleanColor(isShearable, !isShearable && isHoldingShears) + config.getString(SHEARABILITY_STRING);
         }
         return "";

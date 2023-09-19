@@ -19,7 +19,7 @@ archivesBaseName = "wthitharvestability-mc" + "${minecraft_version}"
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 repositories {
-    maven { url "https://maven.bai.lol" }
+    maven { url "https://maven2.bai.lol" }
     maven { url "https://dvs1.progwml6.com/files/maven" }
 }
 
