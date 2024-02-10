@@ -33,7 +33,7 @@ public class ToolHelper {
     }
 
     public static boolean isToolEffectiveAgainst(@Nonnull ItemStack tool, BlockState state, ToolType effectiveToolType) {
-        return tool.isCorrectToolForDrops(state) || tool.canPerformAction(effectiveToolType.action());
+        return tool.isCorrectToolForDrops(state) || (effectiveToolType != null && tool.canPerformAction(effectiveToolType.action()));
     }
 
     public static boolean canToolHarvestLevel(@Nonnull ItemStack tool, Tier harvestTier) {
