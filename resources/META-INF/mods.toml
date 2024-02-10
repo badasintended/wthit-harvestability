@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[33,)"
+loaderVersion="[47,)"
 license="The Unlicense"
 
 [[mods]]
@@ -17,20 +17,20 @@ license="The Unlicense"
 [[dependencies.wthitharvestability]]
     modId="wthit"
     mandatory=true
-    versionRange="[8.4.0,)"
+    versionRange="[8.6.0,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.wthitharvestability]]
     modId="forge"
     mandatory=true
-    versionRange="[33,)"
+    versionRange="[47,)"
     ordering="AFTER"
     side="BOTH"
 
 [[dependencies.wthitharvestability]]
     modId="tconstruct"
     mandatory=false
-    versionRange="[3.0.2.73,)"
+    versionRange="[3.6.4.113,)"
     ordering="AFTER"
     side="BOTH"
