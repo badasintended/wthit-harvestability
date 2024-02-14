@@ -1,3 +1,5 @@
+# THIS PLUGIN IS DISCONTINUED, WTHIT NOW HAS A BUILT-IN HARVESTABILITY PLUGIN.
+
 Waila Harvestability
 ====================
 
